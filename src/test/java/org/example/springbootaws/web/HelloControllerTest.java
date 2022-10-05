@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = HelloController.class)
 public class HelloControllerTest {
-    @Autowired //
+    @Autowired // 스프링이 관리하는 Bean을 주입받음
     private MockMvc mvc; // used for web API test
 
     @Test
