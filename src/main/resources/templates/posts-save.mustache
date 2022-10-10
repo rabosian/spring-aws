@@ -1,0 +1,26 @@
+{{>layout/header}}
+
+<h1>add post</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="title">
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" id="author" placeholder="author">
+            </div>
+            <div class="form-group">
+                <label for="content">Contents</label>
+                <textarea class="form-control" id="content" placeholder="write something..."></textarea>
+            </div>
+        </form>
+        <a href="/" role="button" class="btn btn-secondary">cancel</a>
+        <button type="button" class="btn btn-primary" id="btn-save">post</button>
+    </div>
+</div>
+
+{{>layout/footer}}
