@@ -3,12 +3,15 @@ package org.example.springbootaws.service.posts;
 import lombok.RequiredArgsConstructor;
 import org.example.springbootaws.domain.posts.Posts;
 import org.example.springbootaws.domain.posts.PostsRepository;
+import org.example.springbootaws.web.dto.PostsListResponseDto;
 import org.example.springbootaws.web.dto.PostsResponseDto;
 import org.example.springbootaws.web.dto.PostsSaveRequestDto;
 import org.example.springbootaws.web.dto.PostsUpdateRequestDto;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -32,5 +35,12 @@ public class PostsService {
         Posts entity = postsRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("Post not Found. id="+ id));
         return new PostsResponseDto(entity);
+    }
+
+    @Transactional(readOnly = true) // increase read speed
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new) // == .map(posts -> new PostsListResponseDto(posts))
+                .collect(Collectors.toList());
     }
 }
