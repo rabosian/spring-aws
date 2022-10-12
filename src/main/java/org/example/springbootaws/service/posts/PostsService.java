@@ -40,6 +40,7 @@ public class PostsService {
     @Transactional(readOnly = true) // increase read speed
     public List<PostsListResponseDto> findAllDesc() {
         return postsRepository.findAllDesc().stream()
+                // convert Posts to responseDto
                 .map(PostsListResponseDto::new) // == .map(posts -> new PostsListResponseDto(posts))
                 .collect(Collectors.toList());
     }
