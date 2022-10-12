@@ -44,4 +44,11 @@ public class PostsService {
                 .map(PostsListResponseDto::new) // == .map(posts -> new PostsListResponseDto(posts))
                 .collect(Collectors.toList());
     }
+
+    @Transactional
+    public void delete(Long id) {
+        Posts post = postsRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("Post not Found. id="+id));
+        postsRepository.delete(post);
+    }
 }
