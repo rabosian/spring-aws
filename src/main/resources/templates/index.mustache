@@ -5,6 +5,13 @@
     <div class="row">
         <div class="col-md-6">
             <a href="/posts/save" role="button" class="btn btn-primary">post</a>
+            {{#userName}} <!-- if user exist, display logged user & logout btn -->
+                Logged in as: <span id="user">{{username}}</span>
+                <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+            {{/userName}}
+            {{^userName}} <!-- if user NOT exist, display login btn -->
+                <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+            {{/userName}}
         </div>
     </div>
     <br>
