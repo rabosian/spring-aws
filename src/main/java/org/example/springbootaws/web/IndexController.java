@@ -3,7 +3,6 @@ package org.example.springbootaws.web;
 import lombok.RequiredArgsConstructor;
 import org.example.springbootaws.config.auth.LoginUser;
 import org.example.springbootaws.config.auth.dto.SessionUser;
-import org.example.springbootaws.domain.posts.Posts;
 import org.example.springbootaws.service.posts.PostsService;
 import org.example.springbootaws.web.dto.PostsResponseDto;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
