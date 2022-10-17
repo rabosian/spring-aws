@@ -22,13 +22,12 @@ public class IndexControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-
     @Test
     public void load_mainpage() {
         // when
         String body = this.restTemplate.getForObject("/", String.class);
 
         // then
-        assertThat(body).contains("web service with Springboot");
+        assertThat(body).contains("Springboot web service");
     }
 }
