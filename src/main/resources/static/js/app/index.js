@@ -30,7 +30,7 @@ var main = {
             alert('Post succuess!');
             window.location.href = '/';
         }).fail(function (error) {
-            alert(JSON.stringify(error));
+            alert(JSON.stringify(error.message));
         });
     },
     update : function () {
@@ -55,19 +55,23 @@ var main = {
         });
     },
     delete : function () {
-        var id = $('#id').val();
+        if (confirm("Delete this post?") == true) {
+            var id = $('#id').val();
 
-        $.ajax({
-            type: 'DELETE',
-            url: '/api/v1/posts/'+id,
-            dataType: 'json',
-            contentType:'application/json; charset=utf-8'
-        }).done(function() {
-            alert('Delete success!');
-            window.location.href = '/';
-        }).fail(function (error) {
-            alert(JSON.stringify(error));
-        });
+            $.ajax({
+                type: 'DELETE',
+                url: '/api/v1/posts/'+id,
+                dataType: 'json',
+                contentType:'application/json; charset=utf-8'
+            }).done(function() {
+                alert('Delete success!');
+                window.location.href = '/';
+            }).fail(function (error) {
+                alert(JSON.stringify(error));
+            });
+        } else {
+            return
+        }
     }
 };
 
