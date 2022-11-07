@@ -1,5 +1,5 @@
 # spring-aws
-springboot post CRUD application with user authentication, deployed on AWS 
+springboot post CRUD application with user authentication
 
 
 ## Requirements
@@ -10,5 +10,5 @@ springboot post CRUD application with user authentication, deployed on AWS
 4. Delete post
 
 ### Users features
-1. OAuth authentication
+1. OAuth2.0 authentication (Spring Security)
 2. User authorization
